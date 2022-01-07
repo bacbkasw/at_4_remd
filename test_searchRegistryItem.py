@@ -3,6 +3,7 @@ import requests
 import jxmlease
 import testit
 
+
 """
 Command 4 start: pytest --testit --alluredir allure-results test_searchRegistryItem.py
 Command 4 view result: allure serve allure-results
