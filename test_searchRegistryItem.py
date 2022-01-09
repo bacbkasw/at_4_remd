@@ -2,7 +2,7 @@
 import requests
 import jxmlease
 # import testit
-
+import os
 
 """
 Command 4 start: pytest --testit --alluredir allure-results test_searchRegistryItem.py
@@ -15,6 +15,9 @@ url = "https://remd-dev.rt-eu.ru/port/emdr"
 # @testit.displayName('Поиск в реестре SOAP запрсом SearchRegistryItem')
 # @testit.step('step 1', 'Поиск МСС')
 def test_searchRegistry_58type():
+    adm_stp_name = os.environ['adm_stp_name']
+    adm_stp_passw = os.environ['adm_stp_passw']
+    print("проверка переменных лог/пасс ", adm_stp_name, "/", adm_stp_passw)
     headers = {'content-type': 'application/soap+xml;charset=UTF-8'}
 
     body = """<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:egis="http://egisz.rosminzdrav.ru" xmlns:oas="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:ser="http://egisz.rosminzdrav.ru/iehr/emdr/service/" xmlns:wsa="http://www.w3.org/2005/08/addressing">
