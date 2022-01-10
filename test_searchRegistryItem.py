@@ -11,8 +11,8 @@ Command 4 view result: allure serve allure-results
 url = "https://remd-dev.rt-eu.ru/port/emdr"
 
 
-# @testit.externalID('API test searchRegistryItem')
-# @testit.displayName('Поиск в реестре SOAP запрсом SearchRegistryItem')
+@testit.externalID('API test searchRegistryItem')
+@testit.displayName('Поиск в реестре SOAP запрсом SearchRegistryItem')
 @testit.step('step 1', 'Поиск МСС')
 def test_searchRegistry_58type():
 
