@@ -11,8 +11,8 @@ Command 4 view result: allure serve allure-results
 url = "https://remd-dev.rt-eu.ru/port/emdr"
 
 
-@testit.externalID('API test searchRegistryItem')
-@testit.displayName('Поиск в реестре SOAP запрсом SearchRegistryItem')
+# @testit.externalID('API test searchRegistryItem')
+# @testit.displayName('Поиск в реестре SOAP запрсом SearchRegistryItem')
 @testit.step('step 1', 'Поиск МСС')
 def test_searchRegistry_58type():
 
@@ -48,14 +48,14 @@ def test_searchRegistry_58type():
     find_result = [root["soap:Envelope"]["soap:Body"]["ns3:searchRegistryItemResponse"]["ns3:matches"]['ns3:item'][
                        "ns3:localUid"].get_cdata(),
                    root["soap:Envelope"]["soap:Body"]["ns3:searchRegistryItemResponse"]["ns3:matches"]["ns3:item"][
-                       "ns3:storeTillDate"].get_cdata()]
+                       "ns3:registrationDateTime"].get_cdata()]
 
     assert status == "success"
-    # assert find_result[0] == "4a3e9455-22e6-284a-ae64-548188c2c091"
-    # assert find_result[1] == "2046-09-11+03:00"
+
     errors = True
     # if find_result[0] == "4a3e9455-22e6-284a-ae64-548188c2c091" and find_result[1] == "2046-09-11+03:00":
-    if find_result == ["4a3e9455-22e6-284a-ae64-548188c2c091", "2046-09-11+03:00"]:
+    if find_result == ["4a3e9455-22e6-284a-ae64-548188c2c091", '2021-09-13T17:12:09.896+03:00']:
         errors = False
         print(" Найдет ожидаемый документ с LocalID ", find_result[0], "и датой регистрации ", find_result[1])
+        # print(root["soap:Envelope"]["soap:Body"]["ns3:searchRegistryItemResponse"]["ns3:matches"]["ns3:item"])
     assert not errors
