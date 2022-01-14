@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from selenium.webdriver.common.by import By
 import pytest
-import testit
+# import testit
 import os
 
 """Здесь константы, логины, пароли, явки"""
@@ -18,7 +18,14 @@ link = "https://remd.rt-eu.ru"  # линк на тест стенд
 username_locator = 'username'
 password_locator = 'password'
 submit_locator = 'kc-login'
-
+# adm_stp_name = '069-257-426 97'
+# adm_stp_passw = 'bynfyn'
+# adm_fu_name = "240-811-207 19"
+# adm_fu_passw = "123456"
+# adm_ru_name = "610-000-003 65"
+# adm_ru_passw = "654321"
+# adm_mo_name = "896 893 697 31"
+# adm_mo_passw = "112233"
 
 """Основные функции, многократно используемые в тестах"""
 
@@ -64,8 +71,8 @@ def autorisation(user, passw):
     return browser
 
 
-@testit.externalID('Smoke login STP')
-@testit.displayName('Тест вход СТП')
+# @testit.externalID('Smoke login STP')
+# @testit.displayName('Тест вход СТП')
 @pytest.mark.smoke
 def test_login_STP_web_positive_():
     adm_stp_name = os.environ['adm_stp_name']
@@ -82,8 +89,8 @@ def test_login_STP_web_positive_():
         browser.quit()
 
 
-@testit.externalID('Smoke login FU admin')
-@testit.displayName('Тест вход админ ФУ')
+# @testit.externalID('Smoke login FU admin')
+# @testit.displayName('Тест вход админ ФУ')
 @pytest.mark.smoke
 def test_login_adm_fu_web_positive_():
     try:
@@ -98,8 +105,8 @@ def test_login_adm_fu_web_positive_():
         browser.quit()
 
 
-@testit.externalID('Smoke login RU admin')
-@testit.displayName('Тест вход админ РУ')
+# @testit.externalID('Smoke login RU admin')
+# @testit.displayName('Тест вход админ РУ')
 @pytest.mark.smoke
 def test_login_adm_reg_web_positive_():
     try:
@@ -114,8 +121,8 @@ def test_login_adm_reg_web_positive_():
         browser.quit()
 
 
-@testit.externalID('Smoke login MO admin')
-@testit.displayName('Тест вход админ МО')
+# @testit.externalID('Smoke login MO admin')
+# @testit.displayName('Тест вход админ МО')
 @pytest.mark.smoke
 def test_login_adm_mo_web_positive_():
     try:
