@@ -52,8 +52,11 @@ def delete_cache():
 
 def autorisation(user, passw):
     options = webdriver.ChromeOptions()
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
-
+    options.add_argument('headless')
+    options.add_argument('--disable-infobars')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--remote-debugging-port=9222')
     browser = webdriver.Chrome(options=options)
     browser.delete_all_cookies()
     # delete_cache()
